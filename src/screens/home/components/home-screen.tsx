@@ -122,7 +122,7 @@ export function HomeScreen() {
         >
           <p {...stylex.props(styles.eyebrow)}>Private rules workspace</p>
           <h1 {...stylex.props(styles.title)} id="foundation-title">
-            Rules, kept close to their source.
+            Every ruling, traced back to the page it came from.
           </h1>
           <p {...stylex.props(styles.summary)}>
             Archive is preparing a focused place for tabletop groups to organize

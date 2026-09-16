@@ -12,7 +12,7 @@ describe("HomeScreen", () => {
     expect(
       screen.getByRole("heading", {
         level: 1,
-        name: "Rules, kept close to their source.",
+        name: "Every ruling, traced back to the page it came from.",
       }),
     ).toBeInTheDocument();
     expect(
@@ -41,7 +41,9 @@ describe("HomeScreen", () => {
 
     const main = screen.getByRole("main");
     expect(main).toHaveTextContent("Private rules workspace");
-    expect(main).toHaveTextContent("Rules, kept close to their source.");
+    expect(main).toHaveTextContent(
+      "Every ruling, traced back to the page it came from.",
+    );
     expect(main).toHaveTextContent("Current state");
   });
 });
