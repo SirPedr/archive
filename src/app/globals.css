@@ -1,0 +1,24 @@
+@layer reset, stylex;
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    color-scheme: light;
+    background: #f2f4f1;
+  }
+
+  body {
+    margin: 0;
+    min-width: 0;
+  }
+
+  h1,
+  p {
+    margin: 0;
+  }
+}

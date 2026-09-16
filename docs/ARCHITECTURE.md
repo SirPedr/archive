@@ -147,9 +147,13 @@ Structured events may record an event name plus `request_id`, `user_id_hash`, `j
 
 ## Environments and deployment
 
-Local, staging, and production environments use isolated bindings and resources. The build generates Worker environment types from binding configuration. Deployment applies Drizzle migrations before application code that depends on them and stores secrets through Cloudflare secret facilities.
+Local and production are the only persistent environments. Local development uses local emulation and local-only values. Production uses the explicitly named `archive-production` Worker. The build generates Worker environment types from checked-in binding configuration, and secrets remain in Cloudflare secret facilities rather than source or versioned configuration.
 
-Release validation exercises Workflows, R2 cleanup, Vectorize reconciliation, AI provider outage behavior, and rollback in staging before production promotion. A rollback must preserve schema compatibility or pair application rollback with a tested forward repair; it must not reactivate revoked shares or abandoned document versions.
+Remote release validation uses an uploaded version of `archive-production` that receives no production traffic. The release records the current live version, uploads one tagged candidate, validates its versioned preview URL, and promotes that exact version ID to 100 percent without rebuilding. A failed candidate remains undeployed. Uploaded versions and their preview URLs remain Cloudflare-managed history because individual version deletion and preview TTL are unavailable.
+
+Candidate resources introduced by later platform work must be isolated from production data and named from opaque deployment identifiers rather than user content. Rejected or promoted candidates clean up only disposable external resources and replaceable aliases that expose a supported deletion operation. Cleanup must never delete the production Worker or weaken ownership, privacy, revocation, or document-version invariants.
+
+Rollback explicitly targets the previously recorded known-good version. The platform retains rollback access only for the 100 most recent published versions, and Worker rollback does not revert bindings or resource data. Database changes must therefore remain forward-compatible or provide a tested forward repair. A rollback must not reactivate revoked shares or abandoned document versions.
 
 ## Performance and capacity
 

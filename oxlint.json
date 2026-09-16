@@ -1,0 +1,228 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": [
+    "typescript",
+    "react",
+    "nextjs",
+    "jsx-a11y",
+    "import",
+    "promise",
+    "vitest",
+    "unicorn",
+    "oxc"
+  ],
+  "jsPlugins": ["@stylexjs/eslint-plugin"],
+  "options": {
+    "typeAware": true
+  },
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error",
+    "perf": "warn"
+  },
+  "rules": {
+    "import/no-named-as-default-member": "off",
+    "import/no-unassigned-import": "off",
+    "react/react-in-jsx-scope": "off",
+    "typescript/no-floating-promises": "error",
+    "typescript/no-misused-promises": "error",
+    "@stylexjs/valid-styles": "error",
+    "@stylexjs/no-unused": "error"
+  },
+  "overrides": [
+    {
+      "files": ["src/app/**/*.{ts,tsx}"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "group": ["@screens/*/*", "@features/*/*", "**/fixtures/**"],
+                "message": "Production adapters must use public entrypoints and cannot import fixtures."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["src/screens/**/*.{ts,tsx}"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "paths": [
+              {
+                "name": "next",
+                "message": "Framework imports belong in src/app adapters."
+              },
+              {
+                "name": "vinext",
+                "message": "Framework imports belong in src/app adapters."
+              }
+            ],
+            "patterns": [
+              {
+                "group": ["next/**", "vinext/**"],
+                "message": "Framework imports belong in src/app adapters."
+              },
+              {
+                "group": ["@screens/*/*", "@features/*/*", "**/fixtures/**"],
+                "message": "Screens must consume public entrypoints and cannot import fixtures."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["src/features/**/*.{ts,tsx}"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "paths": [
+              {
+                "name": "next",
+                "message": "Framework imports belong in src/app adapters."
+              },
+              {
+                "name": "vinext",
+                "message": "Framework imports belong in src/app adapters."
+              }
+            ],
+            "patterns": [
+              {
+                "group": [
+                  "next/**",
+                  "vinext/**",
+                  "@app/*",
+                  "@screens/*",
+                  "@features/*",
+                  "**/fixtures/**"
+                ],
+                "message": "Features depend only on their own relative modules and shared public code."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["src/shared/**/*.{ts,tsx}"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "paths": [
+              {
+                "name": "next",
+                "message": "Framework imports belong in src/app adapters."
+              },
+              {
+                "name": "vinext",
+                "message": "Framework imports belong in src/app adapters."
+              }
+            ],
+            "patterns": [
+              {
+                "group": [
+                  "next/**",
+                  "vinext/**",
+                  "@app/*",
+                  "@screens/*",
+                  "@features/*",
+                  "**/fixtures/**"
+                ],
+                "message": "Shared code cannot depend on application or product layers."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["src/app/**/*.client.{ts,tsx}"],
+      "rules": {
+        "nextjs/no-css-tags": "off",
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "group": [
+                  "@screens/*/*",
+                  "@features/*/*",
+                  "**/fixtures/**",
+                  "*.server",
+                  "*.server.*",
+                  "**/index.server"
+                ],
+                "message": "Client adapters must use public client-safe entrypoints."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["src/screens/**/*.client.{ts,tsx}"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "group": [
+                  "next",
+                  "next/**",
+                  "vinext",
+                  "vinext/**",
+                  "@screens/*/*",
+                  "@features/*/*",
+                  "**/fixtures/**",
+                  "*.server",
+                  "*.server.*",
+                  "**/index.server"
+                ],
+                "message": "Client screens must remain framework-neutral and client-safe."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "src/features/**/*.client.{ts,tsx}",
+        "src/shared/**/*.client.{ts,tsx}"
+      ],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "group": [
+                  "next",
+                  "next/**",
+                  "vinext",
+                  "vinext/**",
+                  "@app/*",
+                  "@screens/*",
+                  "@features/*",
+                  "**/fixtures/**",
+                  "*.server",
+                  "*.server.*",
+                  "**/index.server"
+                ],
+                "message": "Client modules must preserve layer and server-only boundaries."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

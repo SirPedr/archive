@@ -1,0 +1,7 @@
+node_modules
+dist
+.next
+.vinext
+.wrangler
+worker-configuration.d.ts
+pnpm-lock.yaml
