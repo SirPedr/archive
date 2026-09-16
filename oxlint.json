@@ -223,6 +223,12 @@
           }
         ]
       }
+    },
+    {
+      "files": ["scripts/**/*.mjs"],
+      "rules": {
+        "no-await-in-loop": "off"
+      }
     }
   ]
 }

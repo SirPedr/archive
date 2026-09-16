@@ -26,7 +26,9 @@
     "release:bootstrap": "pnpm build && node scripts/release.mjs bootstrap",
     "release:candidate": "pnpm build && node scripts/release.mjs candidate",
     "release:promote": "node scripts/release.mjs promote",
-    "release:rollback": "node scripts/release.mjs rollback"
+    "release:rollback": "node scripts/release.mjs rollback",
+    "release:pipeline": "pnpm build && node scripts/release.mjs pipeline",
+    "release:verify": "node scripts/release.mjs verify"
   },
   "dependencies": {
     "@stylexjs/stylex": "0.19.1",
