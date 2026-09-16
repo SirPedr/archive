@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 980" role="img" aria-labelledby="title desc">
+  <title id="title">Archive grounded question and answer flow</title>
+  <desc id="desc">A numbered hybrid retrieval and answer pipeline authenticates the user, resolves enabled systems, queries isolated semantic and exact indexes, generates provisional text, verifies evidence markers and exact quotations across a hard trust boundary, persists a completed answer, and optionally creates an immutable public snapshot.</desc>
+  <defs>
+    <style>
+      .bg{fill:#f8fafc}.panel{fill:#fff;stroke:#334155;stroke-width:2}.head{fill:#172554}.headText{fill:#fff;font:700 21px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.step{fill:#eff6ff;stroke:#2563eb;stroke-width:2}.search{fill:#f0fdf4;stroke:#15803d;stroke-width:2}.model{fill:#fff7ed;stroke:#c2410c;stroke-width:2}.verify{fill:#f5f3ff;stroke:#7c3aed;stroke-width:2}.fail{fill:#fff1f2;stroke:#be123c;stroke-width:2}.public{fill:#fdf2f8;stroke:#be185d;stroke-width:2}.num{fill:#1d4ed8;font:700 18px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.label{fill:#0f172a;font:600 16px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.small{fill:#334155;font:14px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.tiny{fill:#475569;font:13px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.flow{fill:none;stroke:#0f172a;stroke-width:3;marker-end:url(#arrow)}.branch{fill:none;stroke:#2563eb;stroke-width:2.5;marker-end:url(#blueArrow)}.reject{fill:none;stroke:#be123c;stroke-width:2.5;marker-end:url(#redArrow)}.boundary{stroke:#7c3aed;stroke-width:5;stroke-dasharray:13 9}.boundaryText{fill:#6d28d9;font:700 15px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.divider{stroke:#cbd5e1;stroke-width:2}
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#0f172a"/></marker>
+    <marker id="blueArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#2563eb"/></marker>
+    <marker id="redArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#be123c"/></marker>
+  </defs>
+  <rect class="bg" width="1600" height="980"/>
+  <rect class="panel" x="30" y="35" width="1540" height="600" rx="18"/>
+  <path class="head" d="M48 35h1504a18 18 0 0 1 18 18v42H30V53a18 18 0 0 1 18-18Z"/>
+  <text class="headText" x="55" y="75">Authenticated question, hybrid retrieval, and grounded generation</text>
+
+  <g aria-label="Step 1 authenticate and quota">
+    <rect class="step" x="55" y="135" width="185" height="110" rx="14"/>
+    <text class="num" x="75" y="165">1</text><text class="label" x="147" y="182" text-anchor="middle">Authenticate + quota</text>
+    <text class="small" x="147" y="213" text-anchor="middle">Resolve internal user</text><text class="small" x="147" y="235" text-anchor="middle">Reserve question usage</text>
+  </g>
+  <g aria-label="Step 2 resolve context">
+    <rect class="step" x="275" y="135" width="195" height="110" rx="14"/>
+    <text class="num" x="295" y="165">2</text><text class="label" x="372" y="182" text-anchor="middle">Resolve scope</text>
+    <text class="small" x="372" y="213" text-anchor="middle">Enabled systems +</text><text class="small" x="372" y="235" text-anchor="middle">conversation facts</text>
+  </g>
+  <g aria-label="Step 3 query embedding">
+    <rect class="model" x="505" y="135" width="180" height="110" rx="14"/>
+    <text class="num" x="525" y="165">3</text><text class="label" x="595" y="182" text-anchor="middle">Embed query</text>
+    <text class="small" x="595" y="213" text-anchor="middle">AI Gateway</text><text class="small" x="595" y="235" text-anchor="middle">selected model</text>
+  </g>
+  <path class="flow" d="M240 190h35"/><path class="flow" d="M470 190h35"/>
+
+  <g aria-label="Step 4 isolated search">
+    <rect class="search" x="755" y="115" width="260" height="155" rx="14"/>
+    <text class="num" x="775" y="145">4</text><text class="label" x="885" y="162" text-anchor="middle">Search active evidence</text>
+    <line class="divider" x1="780" y1="180" x2="990" y2="180"/>
+    <text class="small" x="885" y="207" text-anchor="middle">Vectorize: semantic</text>
+    <text class="small" x="885" y="232" text-anchor="middle">D1 FTS5: exact + numeric</text>
+    <text class="tiny" x="885" y="255" text-anchor="middle">User namespace · enabled system</text>
+  </g>
+  <path class="flow" d="M685 190h70"/>
+  <g aria-label="Step 5 merge and rerank">
+    <rect class="search" x="1050" y="135" width="200" height="110" rx="14"/>
+    <text class="num" x="1070" y="165">5</text><text class="label" x="1150" y="182" text-anchor="middle">Merge + rerank</text>
+    <text class="small" x="1150" y="213" text-anchor="middle">Deduplicate by chunk_id</text><text class="small" x="1150" y="235" text-anchor="middle">Combined candidates</text>
+  </g>
+  <g aria-label="Step 6 generation">
+    <rect class="model" x="1290" y="125" width="235" height="130" rx="14"/>
+    <text class="num" x="1310" y="155">6</text><text class="label" x="1407" y="175" text-anchor="middle">Generate via AI Gateway</text>
+    <text class="small" x="1407" y="205" text-anchor="middle">Structured ruling + reasoning</text><text class="small" x="1407" y="228" text-anchor="middle">Evidence markers only</text><text class="tiny" x="1407" y="248" text-anchor="middle">Provisional stream, cancellable</text>
+  </g>
+  <path class="flow" d="M1015 190h35"/><path class="flow" d="M1250 190h40"/>
+
+  <line class="boundary" x1="55" y1="335" x2="1525" y2="335"/>
+  <rect x="575" y="317" width="450" height="36" rx="10" fill="#f8fafc"/>
+  <text class="boundaryText" x="800" y="340" text-anchor="middle">HARD TRUST BOUNDARY: VERIFY BEFORE PERSISTENCE</text>
+
+  <g aria-label="Step 7 resolve evidence markers">
+    <rect class="verify" x="420" y="395" width="235" height="115" rx="14"/>
+    <text class="num" x="440" y="425">7</text><text class="label" x="537" y="442" text-anchor="middle">Resolve evidence markers</text>
+    <text class="small" x="537" y="473" text-anchor="middle">Server loads chunks + ranges</text><text class="small" x="537" y="496" text-anchor="middle">Model cannot author quotes</text>
+  </g>
+  <g aria-label="Step 8 exact citation match">
+    <rect class="verify" x="710" y="395" width="235" height="115" rx="14"/>
+    <text class="num" x="730" y="425">8</text><text class="label" x="827" y="442" text-anchor="middle">Exact-match citations</text>
+    <text class="small" x="827" y="473" text-anchor="middle">Normalized substring check</text><text class="small" x="827" y="496" text-anchor="middle">Original-language evidence</text>
+  </g>
+  <g aria-label="Step 9 persist completed answer">
+    <rect class="search" x="1000" y="395" width="235" height="115" rx="14"/>
+    <text class="num" x="1020" y="425">9</text><text class="label" x="1117" y="442" text-anchor="middle">Persist completed answer</text>
+    <text class="small" x="1117" y="473" text-anchor="middle">Question + answer_version</text><text class="small" x="1117" y="496" text-anchor="middle">Immutable citation snapshot</text>
+  </g>
+  <g aria-label="Step 10 optional share">
+    <rect class="public" x="1290" y="395" width="235" height="115" rx="14"/>
+    <text class="num" x="1310" y="425">10</text><text class="label" x="1407" y="442" text-anchor="middle">Optional immutable share</text>
+    <text class="small" x="1407" y="473" text-anchor="middle">New opaque token digest</text><text class="small" x="1407" y="496" text-anchor="middle">Snapshot fields only</text>
+  </g>
+  <path class="flow" d="M655 452h55"/><path class="flow" d="M945 452h55"/><path class="flow" d="M1235 452h55"/>
+  <path class="flow" d="M1407 255V365H537V395"/>
+  <rect class="fail" x="55" y="400" width="300" height="120" rx="14"/>
+  <text class="label" x="205" y="434" text-anchor="middle">Failed or declined answer</text>
+  <text class="small" x="205" y="463" text-anchor="middle">Unsupported marker, quotation mismatch,</text>
+  <text class="small" x="205" y="486" text-anchor="middle">or insufficient evidence</text>
+  <text class="tiny" x="205" y="510" text-anchor="middle">Do not save a sourced ruling</text>
+  <path class="reject" d="M710 485c-110 90-220 75-355 15"/>
+  <text class="tiny" x="70" y="590">On regeneration failure, retain the prior completed answer.</text>
+
+  <rect class="panel" x="30" y="675" width="740" height="255" rx="18"/>
+  <path class="head" d="M48 675h704a18 18 0 0 1 18 18v42H30v-42a18 18 0 0 1 18-18Z"/>
+  <text class="headText" x="55" y="715">Explicit multi-system comparison</text>
+  <rect class="search" x="70" y="775" width="190" height="95" rx="14"/>
+  <text class="label" x="165" y="810" text-anchor="middle">System A retrieval</text><text class="small" x="165" y="840" text-anchor="middle">Isolated evidence pool</text>
+  <rect class="search" x="300" y="775" width="190" height="95" rx="14"/>
+  <text class="label" x="395" y="810" text-anchor="middle">System B retrieval</text><text class="small" x="395" y="840" text-anchor="middle">Isolated evidence pool</text>
+  <rect class="step" x="550" y="775" width="180" height="95" rx="14"/>
+  <text class="label" x="640" y="810" text-anchor="middle">Labeled comparison</text><text class="small" x="640" y="840" text-anchor="middle">No shared pool</text>
+  <path class="branch" d="M260 822h40"/><path class="branch" d="M490 822h60"/>
+
+  <rect class="panel" x="810" y="675" width="760" height="255" rx="18"/>
+  <path class="head" d="M828 675h724a18 18 0 0 1 18 18v42H810v-42a18 18 0 0 1 18-18Z"/>
+  <text class="headText" x="835" y="715">Anonymous public read boundary</text>
+  <rect class="public" x="855" y="775" width="245" height="95" rx="14"/>
+  <text class="label" x="977" y="810" text-anchor="middle">Active opaque share token</text><text class="small" x="977" y="840" text-anchor="middle">Digest lookup</text>
+  <rect class="public" x="1190" y="775" width="325" height="95" rx="14"/>
+  <text class="label" x="1352" y="810" text-anchor="middle">Immutable snapshot table only</text><text class="small" x="1352" y="840" text-anchor="middle">No chat · chunks · R2 · Vectorize access</text>
+  <path class="flow" d="M1100 822h90"/>
+</svg>

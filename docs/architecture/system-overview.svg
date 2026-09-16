@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Archive system overview</title>
+  <desc id="desc">Four regions show the responsive client, Cloudflare application, data and search services, and AI and extraction services. Solid arrows are synchronous requests and dashed arrows are asynchronous workflows.</desc>
+  <defs>
+    <style>
+      .bg{fill:#f7f8fa}.region{fill:#fff;stroke:#334155;stroke-width:2}.head{fill:#14213d}.headText{fill:#fff;font:700 22px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.box{fill:#eef4ff;stroke:#2563eb;stroke-width:2}.store{fill:#f0fdf4;stroke:#15803d;stroke-width:2}.external{fill:#fff7ed;stroke:#c2410c;stroke-width:2}.public{fill:#fdf2f8;stroke:#be185d;stroke-width:2}.label{fill:#0f172a;font:600 18px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.small{fill:#334155;font:15px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.note{fill:#475569;font:14px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.sync{fill:none;stroke:#0f172a;stroke-width:3;marker-end:url(#arrow)}.async{fill:none;stroke:#7c3aed;stroke-width:3;stroke-dasharray:10 8;marker-end:url(#asyncArrow)}
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#0f172a"/></marker>
+    <marker id="asyncArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#7c3aed"/></marker>
+  </defs>
+  <rect class="bg" width="1600" height="900"/>
+
+  <g aria-label="Client region">
+    <rect class="region" x="35" y="55" width="340" height="760" rx="18"/>
+    <path class="head" d="M53 55h304a18 18 0 0 1 18 18v42H35V73a18 18 0 0 1 18-18Z"/>
+    <text class="headText" x="60" y="94">Client</text>
+    <rect class="box" x="70" y="160" width="270" height="115" rx="14"/>
+    <text class="label" x="205" y="200" text-anchor="middle">Responsive web client</text>
+    <text class="small" x="205" y="230" text-anchor="middle">TypeScript + React</text>
+    <text class="small" x="205" y="255" text-anchor="middle">Library and chat routes</text>
+    <rect class="public" x="70" y="355" width="270" height="130" rx="14"/>
+    <text class="label" x="205" y="397" text-anchor="middle">Public-share route</text>
+    <text class="small" x="205" y="428" text-anchor="middle">Snapshot-only</text>
+    <text class="small" x="205" y="453" text-anchor="middle">Unauthenticated</text>
+    <text class="note" x="205" y="575" text-anchor="middle">All library and chat routes</text>
+    <text class="note" x="205" y="598" text-anchor="middle">require an authenticated session.</text>
+  </g>
+
+  <g aria-label="Cloudflare application region">
+    <rect class="region" x="405" y="55" width="405" height="760" rx="18"/>
+    <path class="head" d="M423 55h369a18 18 0 0 1 18 18v42H405V73a18 18 0 0 1 18-18Z"/>
+    <text class="headText" x="430" y="94">Cloudflare application</text>
+    <rect class="box" x="445" y="150" width="325" height="125" rx="14"/>
+    <text class="label" x="607" y="190" text-anchor="middle">React application on Workers</text>
+    <text class="small" x="607" y="220" text-anchor="middle">API, generated binding types,</text>
+    <text class="small" x="607" y="245" text-anchor="middle">server-side authorization</text>
+    <rect class="external" x="445" y="325" width="150" height="100" rx="14"/>
+    <text class="label" x="520" y="365" text-anchor="middle">Clerk</text>
+    <text class="small" x="520" y="395" text-anchor="middle">Identity validation</text>
+    <rect class="box" x="620" y="325" width="150" height="100" rx="14"/>
+    <text class="label" x="695" y="365" text-anchor="middle">Workflows</text>
+    <text class="small" x="695" y="395" text-anchor="middle">Durable jobs</text>
+    <rect class="box" x="445" y="500" width="325" height="120" rx="14"/>
+    <text class="label" x="607" y="542" text-anchor="middle">Authenticated application routes</text>
+    <text class="small" x="607" y="572" text-anchor="middle">Internal user scope on every request</text>
+    <text class="small" x="607" y="597" text-anchor="middle">Private library and persistent chat</text>
+    <rect class="public" x="445" y="680" width="325" height="80" rx="14"/>
+    <text class="label" x="607" y="714" text-anchor="middle">Snapshot reader</text>
+    <text class="small" x="607" y="741" text-anchor="middle">Digest lookup only</text>
+  </g>
+
+  <g aria-label="Data and search region">
+    <rect class="region" x="840" y="55" width="355" height="760" rx="18"/>
+    <path class="head" d="M858 55h319a18 18 0 0 1 18 18v42H840V73a18 18 0 0 1 18-18Z"/>
+    <text class="headText" x="865" y="94">Data and search</text>
+    <rect class="store" x="880" y="150" width="275" height="110" rx="14"/>
+    <text class="label" x="1017" y="190" text-anchor="middle">D1 through Drizzle</text>
+    <text class="small" x="1017" y="220" text-anchor="middle">Relational state + migrations</text>
+    <text class="small" x="1017" y="244" text-anchor="middle">Prepared queries</text>
+    <rect class="store" x="880" y="305" width="275" height="100" rx="14"/>
+    <text class="label" x="1017" y="345" text-anchor="middle">Private R2</text>
+    <text class="small" x="1017" y="375" text-anchor="middle">Original uploads</text>
+    <rect class="store" x="880" y="450" width="275" height="115" rx="14"/>
+    <text class="label" x="1017" y="490" text-anchor="middle">Chunks in D1 / FTS5</text>
+    <text class="small" x="1017" y="520" text-anchor="middle">Exact normalized text</text>
+    <text class="small" x="1017" y="545" text-anchor="middle">Exact search index</text>
+    <rect class="store" x="880" y="615" width="275" height="115" rx="14"/>
+    <text class="label" x="1017" y="655" text-anchor="middle">Vectorize</text>
+    <text class="small" x="1017" y="685" text-anchor="middle">Embeddings</text>
+    <text class="small" x="1017" y="710" text-anchor="middle">One namespace per user</text>
+  </g>
+
+  <g aria-label="AI and extraction region">
+    <rect class="region" x="1225" y="55" width="340" height="760" rx="18"/>
+    <path class="head" d="M1243 55h304a18 18 0 0 1 18 18v42h-340V73a18 18 0 0 1 18-18Z"/>
+    <text class="headText" x="1250" y="94">AI and extraction</text>
+    <rect class="external" x="1265" y="180" width="260" height="125" rx="14"/>
+    <text class="label" x="1395" y="220" text-anchor="middle">AI Gateway</text>
+    <text class="small" x="1395" y="250" text-anchor="middle">Raw payload logging off</text>
+    <text class="small" x="1395" y="275" text-anchor="middle">Models gated by issue #13</text>
+    <rect class="external" x="1265" y="455" width="260" height="155" rx="14"/>
+    <text class="label" x="1395" y="495" text-anchor="middle">Page-aware extraction</text>
+    <text class="small" x="1395" y="525" text-anchor="middle">Runtime pending issue #12</text>
+    <text class="small" x="1395" y="550" text-anchor="middle">Cloudflare Container is</text>
+    <text class="small" x="1395" y="575" text-anchor="middle">a candidate, not a decision</text>
+  </g>
+
+  <path class="sync" d="M340 215H445"/>
+  <path class="sync" d="M520 325V295H607V275"/>
+  <path class="sync" d="M770 195H880"/>
+  <path class="sync" d="M770 520H825V355H880"/>
+  <path class="sync" d="M770 550H880"/>
+  <path class="sync" d="M770 590H820V675H880"/>
+  <path class="sync" d="M770 180H820V128H1205V242H1265"/><text class="note" x="1012" y="143" text-anchor="middle">model traffic</text>
+  <path class="async" d="M695 325V295H1210V530H1265"/><text class="note" x="1015" y="288" text-anchor="middle">ingest / delete</text>
+  <path class="async" d="M1395 610C1330 780 1120 790 1017 730"/>
+  <path class="async" d="M1265 560H1190V505H1155"/>
+  <path class="sync" d="M340 420C390 420 390 720 445 720"/>
+
+  <g aria-label="Legend">
+    <rect x="55" y="842" width="1490" height="42" rx="10" fill="#fff" stroke="#cbd5e1"/>
+    <path class="sync" d="M95 863h90"/><text class="small" x="205" y="869">Synchronous request</text>
+    <path class="async" d="M415 863h90"/><text class="small" x="525" y="869">Asynchronous Workflow</text>
+    <text class="note" x="835" y="869">Private routes require Clerk identity; only an active snapshot token reaches the public reader.</text>
+  </g>
+</svg>
